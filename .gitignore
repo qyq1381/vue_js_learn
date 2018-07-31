@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.vscode/
+.babelrc
+*.json
+buildScripts/
+.vs/
+.DS_Store
