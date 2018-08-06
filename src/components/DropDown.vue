@@ -1,69 +1,86 @@
 <template>
-    <div id="Dropmenu">
+    <div id="dropdown">
+        <div id="list_top">
+            <div>
+                <ul>
+                    <li>
+                        a title
+                    </li>
+                    <li>
+                        <a href="#">a city</a>
+                    </li>
+                    <li>
+                        <a href="#">a city</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        a title
+                    </li>
+                    <li>
+                        <a href="#">a city</a>
+                    </li>
+                    <li>
+                        <a href="#">a city</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        a title
+                    </li>
+                    <li>
+                        <a href="#">a city</a>
+                    </li>
+                    <li>
+                        <a href="#">a city</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="list_bottom">
+            <p>
+                Don't see your city? No problem,
+                <a href='/how-it-works '>get your offer</a>
 
-        <div class="col">
-            <div id="col1">
-                <ul>
-                    <li>
-                        a title
-                    </li>
-                    <li>
-                        <a href="#">a city</a>
-                    </li>
-                    <li>
-                        <a href="#">a city</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="col2">
-                <ul>
-                    <li>
-                        a title
-                    </li>
-                    <li>
-                        <a href="#">a city</a>
-                    </li>
-                    <li>
-                        <a href="#">a city</a>
-                    </li>
-                </ul>
-                </div >
-                <div>
-                    <ul>
-                        <li>
-                            a title
-                        </li>
-                        <li>
-                            <a href="#">a city</a>
-                        </li>
-                        <li>
-                            <a href="#">a city</a>
-                        </li>
-                    </ul>
-                </div>
-                <div id="col4">
-                    <ul id="additionNote">
-                        <li>
-                            Don't see your city? No problem,
-                            <a href='/how-it-works '>get your offer</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            </p>
+        </div>
     </div>
 </template>
 <script>
+    import clickable from './subComponents/clickable.vue'
     export default {
-        name: 'DropDown'
+        name: 'DropDown',
+        component: {
+            clickable,
+        }
+
     }
 </script>
 <style scoped>
-    col1, col2, col3{
-        float: left;
-        width: 33%;
+    #dropdown, #list_top,#list_bottom {
+        display: flex;
+        background-color:lightgray;
+        font-size:1.5rem;
+        
     }
 
-    #additionNote {
-        position: absolute;
+    #dropdown {
+        flex-direction: column;
+    }
+
+        #dropdown * {
+            flex-grow: 1;
+        }
+
+    #list_top {
+        flex-direction: row;
+        justify-content: center;
+    }
+    ul {
+        list-style-type:none;
     }
 </style>
