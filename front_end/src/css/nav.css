@@ -1,0 +1,79 @@
+
+.nav-style{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.nav-appearance{
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    border-width:0 0 4px 0;
+    border-style: solid;
+    border-color: #0c68b8;
+}
+.nav-icon{
+    display: block;
+    color: white;
+    padding: 1.45rem 1rem 1.7rem 1rem;
+}
+a.nav-icon:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-logo{
+    display: block;
+}
+.nav-logo > img{
+    height: 4rem;
+}
+
+nav>ul{
+    margin: 0 0 0 -1rem;
+    font-size: 75%;
+}
+nav>ul>li{
+    display: inline-block;
+    margin: 0rem -.2rem 0rem -.2rem;
+    padding: 0;
+}
+nav>ul>li>a{
+    color: white;
+    background-color: #0c79b8;
+    padding: 1.85rem 1rem 1.9rem 1rem;
+}
+nav>ul> li > a:hover{
+    text-decoration: none;
+    color: white;
+    background-color: #0b6da5;
+}
+#drop-part{
+    position:absolute;
+    background-color: gray;
+    color: white;
+}
+.leftlist{
+    padding: 15px 0 30px 18%;
+    margin: 0 -15px;
+}
+.rightlist{
+    padding: 15px 0 30px 5%;
+    margin: 0 -15px;
+}
+.listheader{
+    padding: 0 0 0 40px;
+}
+#drop-part{
+    position: absolute;
+    width:100%;
+}
+#drop-part li{
+    list-style-type:none;
+}
+#drop-part li a{
+    color: white;
+}
+#drop-part li a:hover{
+    text-decoration: none;
+}

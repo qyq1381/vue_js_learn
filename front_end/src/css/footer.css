@@ -1,0 +1,58 @@
+table {
+  width: 100%;
+  padding: 2% 5% 0 5%;
+}
+th,
+td {
+  padding: 5px;
+  text-align: start;
+}
+.footer {
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+}
+#footer-link{
+  display:inline-block;
+}
+#footer-link>div>a{
+  padding: 1.85rem 1rem 1.9rem 1rem;
+  color:#a4a4a5;
+}
+#footer-link>div>a:hover{
+  text-decoration: none;
+  color: white;
+  background-color: gray;
+  padding: 1.85rem 1rem 1.9rem 1rem;
+}
+.footer-logo{
+  float:left;
+}
+#minor-section{
+  padding: 50px;
+}
+#footer-link {
+  display:flex;
+  float:right;
+}
+footer span {
+  padding: 0px 10px 0px 10px;
+}
+
+header a:visited {
+  color: #f3f2f3;
+}
+
+footer a:link {
+  text-decoration: none;
+}
+
+#minor-section a:visited,footer a:visited {
+
+  text-decoration: none;
+  color: #a4a4a5;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

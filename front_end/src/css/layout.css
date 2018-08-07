@@ -1,0 +1,29 @@
+body {
+    background: white;
+    font-family: 'Hind', sans-serif;
+}
+.bg-blue {
+    background-color: #0c79b8;
+}
+
+.right_bottom_icon {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    
+}
+
+#RB_img {
+    height: inherit;
+    width: inherit;
+    border-radius: 50%;
+}
+
+.right_bottom_icon a:active {
+    width: 0;
+    height: 0;
+    transition: 1s;  
+}
