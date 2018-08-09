@@ -5,7 +5,7 @@ MongoClient.connect(url, function(err, db){
 	if (err) throw err;
 	let dbo = db.db("mycustomers");
 	let insert_obj = {}; // insert the object you want
-	/*
+	
 	 var dbo = db.db("mydb");
   var myobj = { name: "Company Inc", address: "Highway 37" };
   dbo.collection("customers").insertOne(myobj, function(err, res) {
@@ -13,8 +13,7 @@ MongoClient.connect(url, function(err, db){
     console.log("1 document inserted");
     db.close();
 
-
-    for update
+   /* //for update
     	MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   var dbo = db.db("mydb");
@@ -25,6 +24,7 @@ MongoClient.connect(url, function(err, db){
     console.log("1 document updated");
     db.close();
   });
-});*/
+});
+*/
 
 });
