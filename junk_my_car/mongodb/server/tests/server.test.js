@@ -94,22 +94,107 @@ describe('GET /todos/:id', ()=>{
 		var hexID = new ObjectID().toHexString();
 
 		request(app)
-		.get('/todos/123123')
+		.get(`/todos/${hexID}`)
 		.expect(404)
 		.end(done);
 		//make sure you get a 404 back
-	})
+	});
 
 	it('should return 404 if not id', (done) => {
-		var hexID = new ObjectID().toHexString();
 
 		request(app)
-		.get('/todos/123123')
+		.get(`/todos/$123123`)
 		.expect(404)
 		.end(done);
 		// /todos/123
-	})
+	});
+});
+
+describe('DELETE /todos/:id', ()=>{
+	it('should remove a todo', (done)=>{
+		var hexID = todos[1]._id.toHexString();
+
+		request(app)
+		.delete(`/todos/${hexID}`)
+		.expect(200)
+		.expect((res) => {
+			expect(res.body.todo._id).toBe(hexID);
+		}).end((err, res) => {
+			if(err) {
+				return done(err);
+			}
+
+			Todo.findById(hexID).then((todo)=>{
+				expect(todo).toNotExist();
+				done();
+			}).catch((err) => done(err));
+		});
+	});
+
+	it('should return 404 if todo not found', (done)=>{
+		var hexID = new ObjectID().toHexString();
+
+		request(app)
+		.delete(`/todos/${hexID}`)
+		.expect(404)
+		.end(done);
+	});
+
+	it('should return 404 if object id invaild', (done)=>{
+
+		request(app)
+		.delete(`/todos/dad978hjkjkh`)
+		.expect(404)
+		.end(done);
+	});
+	
 });
 
 
+describe('PATCH /todos/:id', ()=>{
+	it('should create the todo',(done)=>{
+		var hexID = todos[0]._id.toHexString();
+		var text = 'this is new text';
 
+		request(app)
+		.patch(`/todos/${hexID}`)
+		.send({
+			completed : true,
+			text
+		})
+		.expect(200)
+		.expect((res)=>{
+			expect(res.body.todo.text).toBe(text);
+			expect(res.body.todo.completed).toBe(true);
+			expect(res.body.todo.completedAt).toBeA('number');
+		})
+		.end(done);
+		//grad id of first item
+		//update text, set completed 
+		//200
+		//text is changed, completed is true, completedAt
+	});
+
+	it('should completed at ', (done)=>{
+		var hexID = todos[1]._id.toHexString();
+		var text = 'this is new text!!';
+
+		request(app)
+		.patch(`/todos/${hexID}`)
+		.send({
+			completed : false,
+			text
+		})
+		.expect(200)
+		.expect((res)=>{
+			expect(res.body.todo.text).toBe(text);
+			expect(res.body.todo.completed).toBe(false);
+			expect(res.body.todo.completedAt).toNotExist();
+		})
+		.end(done);
+		//grab id of second todo item
+		//update text, set completed to false
+		//200
+		//text is changed, completed false, completedAt is null .toNotExist
+	});
+});
