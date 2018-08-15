@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\node_modules\\babel-loader",
+    "\\node_modules\\babel-loader\\lib",
+    "\\node_modules\\babel-loader\\lib\\utils",
+    "\\src",
+    "\\src\\assets",
+    "\\src\\components",
+    "\\src\\components\\subComponents"
+  ],
+  "SelectedNode": "\\src\\components\\subComponents\\clickable.vue",
+  "PreviewInSolutionExplorer": false
+}
