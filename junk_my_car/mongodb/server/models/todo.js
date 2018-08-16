@@ -1,21 +1,42 @@
 var mongoose = require('mongoose');
 
+
+
 var Todo = mongoose.model('Todo',{
-	text: {
-		//could set the schema here
+	
+	year: {
+		type: Number,
+		default: null
+	},
+	make1: {
 		type: String,
-		require:true,
-		minlength: 1,
+		require: true,
 		trim: true
 	},
-	completed: {
-		type: Boolean,
-		default: false
+	make2: {
+		type: String,
+		require: true,
+		trim: true
 	},
-	completedAt: {
+	make3: {
+		type: String,
+		require: true,
+		trim: true
+	},
+	zip: {
 		type: Number,
 		default: null
 	}
+
 });
 
 module.exports = {Todo};
+/*
+var data = {
+        "year": year_v,
+        "make1": make1_v,
+        "make2": make2_v,
+        "make3": make3_v,
+        "zip": zip_v,
+    }
+*/

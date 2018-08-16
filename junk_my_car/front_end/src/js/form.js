@@ -1,3 +1,4 @@
+
 window.onload = function () {
     let zip = document.getElementById("zipcode");
     let year = document.getElementById("yearId");
@@ -76,14 +77,14 @@ window.onload = function () {
             make3.length = 1;
             make2.disabled = false;
             create_make_options(make2, BentleyObj);
-          }
-};
+        }
+    };
 
-make2.onchange = function () {
-    make3.length = 1;
-    make3.disabled = false;
-    create_make_options(make3, TrimObj);
-}
+    make2.onchange = function () {
+        make3.length = 1;
+        make3.disabled = false;
+        create_make_options(make3, TrimObj);
+    }
 
 };
 
@@ -135,15 +136,29 @@ function getXMLHttpRequest() {
 function submitvalue(year_v,make1_v,make2_v,make3_v,zip_v) {
     var xmlhttp = getXMLHttpRequest();
     var data = {
+        "text" : "junk-my-car",
         "year": year_v,
         "make1": make1_v,
         "make2": make2_v,
         "make3": make3_v,
         "zip": zip_v,
     }
-    var stringData = JSON.stringify(data);
-    xmlhttp.open("POST", "mongodb://localhost:27017/", true);
+    
+     xmlhttp.onreadystatechange = function(){
+
+    //若响应完成且请求成功
+    if(this.readyState === 4 && this.status === 200){
+        //do something, e.g. request.responseText
+        alert("sent succeed");
+    }else{
+
+        alert(`readyState: ${xmlhttp.readyState}, status: ${xmlhttp.status}`);
+    }
+};
+var stringData = JSON.stringify(data);
+    xmlhttp.open("POST", "http://localhost:3000/todos", true);
     xmlhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
-    alert(stringData);
-    xmlhttp.send(stringData);
+
+    xmlhttp.send(JSON.stringify(data));
+     alert(JSON.stringify(data));
 }
